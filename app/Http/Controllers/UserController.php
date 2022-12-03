@@ -10,29 +10,21 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller 
 {
 
-/**
+    /**
      * 会員の新規登録
      */
     public function index()
     {
         return view('user.register');
     }
-    
+
     public function register(UserRegisterPost $request)
     {
+    
         // validate済みのデータの取得
         $datum = $request->validated();
         
-    
-       
-
-        // テーブルへのINSERT
         try {
-            
-             // name の追加
-             $datum['name'] = Auth::name();
-             // emailの追加
-             $datum['email'] = Auth::email();
              //Hash化したpasswordの追加
              $datum['password'] = Hash::make($datum['password']);
             $r = UserModel::create($datum);
