@@ -6,9 +6,7 @@
 {{-- メインコンテンツ --}}
 @section('contets')
         <h1>ユーザ登録</h1>
-            @if (session('front.user_register_success') == true)
-                ユーザを登録しました！！<br>
-            @endif
+            
             @if (session('front.user_completed_failure') == true)
                 The name field is required.<br>
                 The email field is required.<br>
